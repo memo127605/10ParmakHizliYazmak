@@ -8,16 +8,21 @@
 .header {
     position: fixed;
     top: 0;
+    left: 0;
     right: 0;
-    padding: 1rem;
+    padding: 1rem 2rem;
     display: flex;
-    gap: 1rem;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 2rem;
     z-index: 100;
+    background: var(--bg-secondary);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .auth-buttons {
     display: flex;
-    gap: 0.5rem;
+    gap: 1rem;
 }
 
 .container {
@@ -46,6 +51,8 @@
     font-size: 1.5rem;
     line-height: 1.8;
     color: var(--text-primary);
+    display: flex;
+    flex-direction: column;
 }
 
 .word-line {
@@ -54,9 +61,16 @@
     word-wrap: break-word;
 }
 
+.word-line.active {
+    order: -1;
+}
+
 .word-line span {
     display: inline-block;
     margin-right: 0.5rem;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
 }
 
 .word-line span.correct {
@@ -70,8 +84,26 @@
 
 .word-line span.current {
     background-color: rgba(33, 150, 243, 0.1);
-    border-radius: 3px;
-    padding: 0 4px;
+}
+
+.word-line span.current.correct {
+    color: #4caf50;
+    background-color: rgba(76, 175, 80, 0.1);
+}
+
+.word-line span.current.incorrect {
+    color: #f44336;
+    background-color: rgba(244, 67, 54, 0.1);
+}
+
+.word-line span.completed.correct {
+    color: #4caf50;
+    background-color: rgba(76, 175, 80, 0.1);
+}
+
+.word-line span.completed.incorrect {
+    color: #f44336;
+    background-color: rgba(244, 67, 54, 0.1);
 }
 
 .input-area {
@@ -128,21 +160,57 @@
 button {
     padding: 0.8rem 1.5rem;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     background: var(--btn-primary);
     color: white;
     cursor: pointer;
     transition: all 0.3s ease;
     font-size: 1rem;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 button:hover {
-    opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#loginBtn {
+    background: var(--btn-active);
+}
+
+#registerBtn {
+    background: #2196F3;
+}
+
+#themeToggle {
+    background: #9C27B0;
+}
+
+.start-button {
+    background: linear-gradient(45deg, #4CAF50, #45a049);
+    padding: 12px 24px;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 10px 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.start-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(45deg, #45a049, #4CAF50);
 }
 
 #restartBtn {
     width: 100%;
-    background: var(--btn-active);
+    background: linear-gradient(45deg, var(--btn-active), #1565C0);
+    margin-top: 1rem;
 }
 
 /* Modal Stili */
@@ -247,7 +315,25 @@ input {
 }
 
 .theme-toggle {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
+    position: relative;
+    margin-left: 1rem;
+}
+
+#loginBtn, #registerBtn, #themeToggle {
+    min-width: 120px;
+}
+
+.start-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.start-button:hover {
+    background-color: #45a049;
 } 

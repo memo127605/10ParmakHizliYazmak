@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const restartBtn = document.getElementById('restartBtn');
     const resultModal = document.getElementById('resultModal');
     const closeModal = document.getElementById('closeModal');
+    const startBtn = document.getElementById('startBtn');
 
     let currentWordIndex = 0;
     let correctWords = 0;
@@ -197,6 +198,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Yeniden başlatma butonu
     restartBtn.addEventListener('click', restartGame);
+
+    // Başlangıçta input alanını devre dışı bırak
+    typingInput.disabled = true;
+
+    // Başlat butonuna tıklandığında
+    startBtn.addEventListener('click', () => {
+        startBtn.style.display = 'none'; // Başlat butonunu gizle
+        typingInput.disabled = false; // Input alanını etkinleştir
+        typingInput.focus(); // Input alanına odaklan
+        startTimer(); // Zamanlayıcıyı başlat
+        initializeTest(); // Testi başlat
+    });
 
     // Oyunu başlat
     createNewLines();
