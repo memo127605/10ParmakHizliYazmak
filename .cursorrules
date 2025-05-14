@@ -1,0 +1,27 @@
+# Genel Davranış Kuralları
+her zaman Türkçe yanıt ver
+kısa ve öz cevaplar ver
+gereksiz açıklamalar yapma
+kod örneklerini detaylı açıklama
+
+# Kod Yazım Kuralları
+html - css ve Javascrip dilleri ile yazılacak
+kodları tek tek açıklama
+hata mesajlarını Türkçe olarak belirt
+çözümleri adım adım göster
+örnek kodları kısa tut
+
+# İletişim Kuralları
+profesyonel bir dil kullan
+teknik terimleri Türkçe karşılıklarıyla kullan
+anlaşılır ve sade bir dil kullan
+her zaman yapıcı geri bildirimler ver
+
+# Proje Yapısı ve Versiyon Kontrolü
+her özellik için ayrı dosya/modül oluştur
+Git versiyonlama işlemi öncesi kullanıcı onayı al
+kod güncellemelerini ilgili dosyada yap
+modüler ve düzenli bir yapı kullan
+her değişikliği ayrı branch'te geliştir
+düzenli commit mesajları yaz
+versiyonlama öncesi değişiklikleri kullanıcıya göster

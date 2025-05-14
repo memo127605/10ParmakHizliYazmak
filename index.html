@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10 Parmak Hızlı Yazma</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/themes.css">
+</head>
+<body class="light-theme">
+    <div class="header">
+        <div class="auth-buttons">
+            <button id="loginBtn">Giriş Yap</button>
+            <button id="registerBtn">Üye Ol</button>
+        </div>
+        <div class="theme-toggle">
+            <button id="themeToggle">Tema Değiştir</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="typing-container">
+            <div class="word-display">
+                <div id="previousWords" class="word-line"></div>
+                <div id="currentWords" class="word-line active"></div>
+            </div>
+            <div class="input-area">
+                <input type="text" id="typingInput" placeholder="Yazmaya başlamak için tıklayın..." autocomplete="off">
+            </div>
+            <div class="stats">
+                <div class="stat-item">
+                    <span>Hız:</span>
+                    <span id="wpm">0 KDK</span>
+                </div>
+                <div class="stat-item">
+                    <span>Doğruluk:</span>
+                    <span id="accuracy">100%</span>
+                </div>
+                <div class="stat-item">
+                    <span>Süre:</span>
+                    <span id="timer">60s</span>
+                </div>
+            </div>
+            <button id="restartBtn">Yeniden Başlat</button>
+        </div>
+    </div>
+
+    <!-- Sonuç Modal -->
+    <div id="resultModal" class="modal">
+        <div class="modal-content">
+            <h2>Test Sonuçları</h2>
+            <div class="results">
+                <div class="result-item">
+                    <span>Doğru Kelime:</span>
+                    <span id="correctWords">0</span>
+                </div>
+                <div class="result-item">
+                    <span>Yanlış Kelime:</span>
+                    <span id="wrongWords">0</span>
+                </div>
+                <div class="result-item">
+                    <span>Tuş Vuruş:</span>
+                    <span id="keystrokes">0</span>
+                </div>
+                <div class="result-item">
+                    <span>Doğruluk:</span>
+                    <span id="finalAccuracy">0%</span>
+                </div>
+                <div class="result-item">
+                    <span>Hız:</span>
+                    <span id="finalWpm">0 KDK</span>
+                </div>
+            </div>
+            <button id="closeModal">Kapat</button>
+        </div>
+    </div>
+
+    <script src="js/words.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html> 

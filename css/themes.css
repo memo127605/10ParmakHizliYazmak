@@ -1,0 +1,47 @@
+:root {
+    /* Açık Tema */
+    --light-bg-primary: #ffffff;
+    --light-bg-secondary: #f5f5f5;
+    --light-text-primary: #333333;
+    --light-border-color: #dddddd;
+    --light-btn-bg: #eeeeee;
+    --light-btn-active: #2196f3;
+    --light-btn-primary: #2196f3;
+    --light-input-bg: #ffffff;
+
+    /* Koyu Tema */
+    --dark-bg-primary: #1a1a1a;
+    --dark-bg-secondary: #2d2d2d;
+    --dark-text-primary: #ffffff;
+    --dark-border-color: #404040;
+    --dark-btn-bg: #404040;
+    --dark-btn-active: #2196f3;
+    --dark-btn-primary: #2196f3;
+    --dark-input-bg: #333333;
+}
+
+/* Açık Tema */
+body.light-theme {
+    background-color: var(--light-bg-primary);
+    color: var(--light-text-primary);
+    --bg-secondary: var(--light-bg-secondary);
+    --text-primary: var(--light-text-primary);
+    --border-color: var(--light-border-color);
+    --btn-bg: var(--light-btn-bg);
+    --btn-active: var(--light-btn-active);
+    --btn-primary: var(--light-btn-primary);
+    --input-bg: var(--light-input-bg);
+}
+
+/* Koyu Tema */
+body.dark-theme {
+    background-color: var(--dark-bg-primary);
+    color: var(--dark-text-primary);
+    --bg-secondary: var(--dark-bg-secondary);
+    --text-primary: var(--dark-text-primary);
+    --border-color: var(--dark-border-color);
+    --btn-bg: var(--dark-btn-bg);
+    --btn-active: var(--dark-btn-active);
+    --btn-primary: var(--dark-btn-primary);
+    --input-bg: var(--dark-input-bg);
+} 

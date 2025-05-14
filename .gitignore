@@ -1,0 +1,14 @@
+# IDE ve editör dosyaları
+.vscode/
+.idea/
+*.sublime-*
+
+# Sistem dosyaları
+.DS_Store
+Thumbs.db
+
+# Node modülleri (eğer ileride kullanılırsa)
+node_modules/
+
+# Log dosyaları
+*.log 
