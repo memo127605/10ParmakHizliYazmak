@@ -70,30 +70,37 @@
     margin-right: 0.5rem;
     padding: 0.2rem 0.4rem;
     border-radius: 4px;
-    transition: all 0.3s ease;
-}
-
-.word-line span.correct {
-    color: #4caf50;
-}
-
-.word-line span.incorrect {
-    color: #f44336;
-    text-decoration: underline;
+    transition: all 0.15s ease;
+    background-color: transparent;
 }
 
 .word-line span.current {
-    background-color: rgba(33, 150, 243, 0.1);
+    background-color: rgba(33, 150, 243, 0.2);
+    border: 1px solid rgba(33, 150, 243, 0.5);
 }
 
 .word-line span.current.correct {
+    background-color: rgba(76, 175, 80, 0.2);
     color: #4caf50;
-    background-color: rgba(76, 175, 80, 0.1);
+    border: 1px solid rgba(76, 175, 80, 0.5);
 }
 
 .word-line span.current.incorrect {
+    background-color: rgba(244, 67, 54, 0.2);
     color: #f44336;
-    background-color: rgba(244, 67, 54, 0.1);
+    border: 1px solid rgba(244, 67, 54, 0.5);
+}
+
+.word-line span.correct {
+    background-color: rgba(76, 175, 80, 0.2);
+    color: #4caf50;
+    border: 1px solid rgba(76, 175, 80, 0.5);
+}
+
+.word-line span.incorrect {
+    background-color: rgba(244, 67, 54, 0.2);
+    color: #f44336;
+    border: 1px solid rgba(244, 67, 54, 0.5);
 }
 
 .word-line span.completed.correct {
@@ -336,4 +343,4 @@ input {
 
 .start-button:hover {
     background-color: #45a049;
-} 
+}

@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentLineWords = [];
     let nextLineWords = [];
     let typedWord = '';
+    let typedWords = [];
 
     // Tab değiştirme işlevi
     const tabButtons = document.querySelectorAll('.tab-btn');
@@ -76,9 +77,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // Kelimeleri ekranda gösterme
     function displayWords() {
         previousWords.innerHTML = nextLineWords.map(word => `<span>${word}</span>`).join(' ');
-        currentWords.innerHTML = currentLineWords.map((word, index) => 
-            `<span class="${index === currentWordIndex ? 'current' : ''}">${word}</span>`
-        ).join(' ');
+        currentWords.innerHTML = currentLineWords.map((word, index) => {
+            let className = '';
+            if (index === currentWordIndex) {
+                className = 'current';
+            } else if (index < currentWordIndex) {
+                // Önceki kelimeler için doğru/yanlış kontrolü
+                const isCorrect = typedWords[index] === currentLineWords[index];
+                className = isCorrect ? 'correct' : 'incorrect';
+            }
+            return `<span class="${className}">${word}</span>`;
+        }).join(' ');
     }
 
     // Zamanlayıcı başlatma
@@ -122,6 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
         keystrokes = 0;
         timeLeft = 60;
         typedWord = '';
+        typedWords = [];
         clearInterval(timerInterval);
         
         wpmDisplay.textContent = '0 KDK';
@@ -136,10 +146,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // Kelime kontrolü
     function checkWord() {
         const currentWord = currentLineWords[currentWordIndex];
+        
+        // Yazılan kelimeyi kaydet ve renklendirme için kontrol et
+        typedWords[currentWordIndex] = typedWord;
+        const spans = currentWords.getElementsByTagName('span');
+        
         if (typedWord === currentWord) {
             correctWords++;
+            spans[currentWordIndex].classList.remove('current');
+            spans[currentWordIndex].classList.add('correct');
         } else {
             wrongWords++;
+            spans[currentWordIndex].classList.remove('current');
+            spans[currentWordIndex].classList.add('incorrect');
         }
 
         currentWordIndex++;
@@ -151,6 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
             currentWordIndex = 0;
             currentLineWords = nextLineWords;
             nextLineWords = shuffleArray([...words]).slice(0, 8);
+            typedWords = [];
         }
 
         // İstatistikleri güncelle
@@ -182,11 +202,15 @@ document.addEventListener('DOMContentLoaded', () => {
         // Anlık kelime kontrolü
         const currentWord = currentLineWords[currentWordIndex];
         const spans = currentWords.getElementsByTagName('span');
+        const currentSpan = spans[currentWordIndex];
         
-        if (typedWord === currentWord.substring(0, typedWord.length)) {
-            spans[currentWordIndex].className = 'current correct';
+        // Harf harf kontrol
+        if (typedWord.length === 0) {
+            currentSpan.className = 'current';
+        } else if (currentWord.startsWith(typedWord)) {
+            currentSpan.className = 'current correct';
         } else {
-            spans[currentWordIndex].className = 'current incorrect';
+            currentSpan.className = 'current incorrect';
         }
     });
 
